@@ -5,8 +5,8 @@ def main():
    from functools import reduce
    li=["pupa","lupa","Kylo Ren","Naruto"]
    flip=list(map(lambda x:li.index(x),li))#если речь не про индекс а про счет то просто flip=list(map(lambda x:li.index(x)+1,li))
-   rez=list(map(lambda x,y:f'{y}-{x}',li,flip))
-   print(rez)
-
+   rez=(map(lambda x,y:f'{y}-{x}',li,flip))
+   new_li=[rez for rez in rez]
+   print(new_li)
 if __name__=="__main__":
     main()
