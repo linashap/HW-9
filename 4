@@ -1,0 +1,35 @@
+'''Создать универсальный декоратор, который меняет порядок аргументов в
+функции на противоположный
+
+def flipper(names):
+    def inner(first_name,last_name):
+        first=last_name
+        last=first_name
+        return print(first,last)
+    return(inner)
+@flipper
+def names(first_name,last_name):
+    return print("меня зовут",first_name,last_name)
+
+names(input(),input())'''
+
+'''Создать универсальный декоратор, который меняет порядок аргументов в
+функции на противоположный'''
+
+
+my_list = []
+while True:
+    i=input("Введите аргумент,введите путой аргумент чтобы прекратить ввод агргументов: ")
+    if i=="":
+        break
+    my_list.append(i)
+
+def my_decorator_universal(func):
+    def xz_universal(*args):
+        return func(my_list[::-1])
+    return xz_universal
+
+@my_decorator_universal
+def my_func(numbers: my_list):
+    print(numbers)
+my_func(my_list)
