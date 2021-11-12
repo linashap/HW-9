@@ -1,0 +1,26 @@
+'''Создать декоратор для функции, которая принимает список чисел.
+Декоратор должен производить предварительную проверку данных -
+удалять все четные элементы из списка.'''
+def decorator(spisok_chisel):
+    
+    def inner():
+        rez=spisok_chisel()
+        
+        for i in rez  :
+            if int(i)%2==0:
+                rez.remove(i)
+        return(rez)
+    return(inner)
+
+@decorator
+def spisok_chisel():
+    li=[]
+    while True:
+        i=(input('Введите число'))
+        if i =='':
+            break
+        li.append(int(i))
+    return (li)
+
+
+print(spisok_chisel())
